@@ -1,0 +1,20 @@
+Assignment 6
+COP 4530
+Christopher SanGiovanni
+Analysis
+
+1) Reading the input set. Storing the characters / words / numbers in your chosen containers, and setting their tracking values
+Given that I chose to use an unordered_map which is by nature a hashtable all my inserts will we O(1) which will run for
+n, with n being the number of total characters. The O(1) STL functions that I used were find and insert. 
+
+2) Looking up the final tracking info on your character / word / number frequencies
+Every look up was O(1) because I used a hashtable which has O(1) search and insert.
+
+3) Deciding on (and accessing for output) your "Top Ten" most frequent list for each case
+For this algorithm I used an iterator to insert the first 10 items into the vector that I used for output. After
+this I added the next input into the vector and sorted it. After this I popped the back of the vector, which would make
+all my sorts 11Log11 which is a constant and can be ignored in final evaluation. I went through the entire hashtable
+makeing the algorithm O(n) excluding any constants. 
+
+For testing purposes I used a timer with my algorithm and I coppied test 3 into a test 4 and quadrupled the numbers.
+My runtime for test 3 was .47 seconds and for my test 4 it was 1.78 seconds which is about O(n) growth rate. 

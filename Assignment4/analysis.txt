@@ -1,0 +1,18 @@
+Christopher SanGiovanni
+CS19N
+Assignment 4 analysis
+Analysis of makeEmpty()
+
+void makeEmpty(BinaryNode* &t)		//this function is defined recursively with a post order traversal
+{
+	if( t != nullptr )						
+    {
+        makeEmpty( t->left );		//here we recall the same function going down the left branch
+        makeEmpty( t->right );		//here we go down the right branch 
+        delete t; 					//finally we delete the parent as we wouldn't
+    }								//be able to access the left or right tree without it
+    t = nullptr;					//then set the parent to null 
+}	
+
+/*The complexity of makeEmpty() in big-O would be O(n) with n being the size of the tree 
+because the function would be recalled for each branch or leaf that it reaches*/

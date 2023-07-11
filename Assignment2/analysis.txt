@@ -1,0 +1,34 @@
+Christopher SanGiovanni
+COP 4530
+Assignment 2 Analysis
+
+Reverse::
+
+if(!empty())		//+ 1 for calling empty function
+{
+List<T> newList;	//+ 1 for using default constructor
+for(auto start = --end(); start != begin(); --start)	// n - 1 because it goes the length of the loop except for the end
+	newList.push_back(*start);			//or the begining in this case, and the number of functions does 
+							//not matter in the loop because we are measuring growth not time
+newList.push_back(*begin());				//+ 1 
+std::swap(*this, newList);			//using move semantics which has 3 swap function calls inside of it so +3
+}
+
+Analysis: My version of the reverse function is O((n - 1) + 6) given that we will always have at least 6 function calls in the 
+worst case sinerio.
+
+Remove_if::
+
+if(!empty())		//+ 1 for calling the empty function 
+for(auto start = begin(); start != end(); ++start)	// n  loop through whole list using iterators
+	if(pred(*start))		//+ 1 for comparison operator 
+	{
+		start = erase(start);			// + 1 for calling erase which has 6 function calls inside
+		--start;				// + 1decrement of start 
+	}			//but all the atomics inside the loop do not matter because again we are measuring growth not 
+				//actual time
+
+Analysis: My version of the Remove_if function is O(n + 1) because most of the function calls are inside the loop, and the 
+function will always call the empty() function in the beginning. 
+
+

@@ -1,0 +1,16 @@
+Christopher SanGiovanni
+CS19N
+Assignment 3 
+Stack clear() analysis
+
+template <typename T>
+void Stack<T>::clear()
+{
+	while(!empty())			//Here we loop until the stack is empty 
+		pop();				//and we call pop on the stack which calls pop_back on the vector
+}
+
+
+The complexity analysis comes out to big O of n or O(n) because we only have to loop through the length of the 
+vector array and the pop function only shortens the size of the vector by one everytime so there is no 
+reallocation nessessary like how there would be if we pushed instead of popped. 
